@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Formulário</title>
+	<meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<form>
+		<label for="dia">Dia:</label>
+		<input type="number" id="dia" name="dia" required>
+		<br>
+		<label for="mes">Mês:</label>
+		<input type="number" id="mes" name="mes" required>
+		<br>
+		<label for="ano">Ano:</label>
+		<input type="number" id="ano" name="ano" required>
+		<br>
+		<button type="submit" onclick="validarFormulario()">Enviar</button>
+	</form>
+
+	<script>
+		function validarFormulario() {
+			var dia = parseInt(document.getElementById("dia").value);
+			var mes = parseInt(document.getElementById("mes").value);
+			var ano = parseInt(document.getElementById("ano").value);
+
+			var dataNascimento = new Date(ano, mes - 1, dia);
+			var dataAtual = new Date();
+
+			var diff = Math.abs(dataAtual.getTime() - dataNascimento.getTime());
+			var idade = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+
+			if (idade >= 18) {
+				alert("Formulário enviado");
+			} else {
+				alert("Você deve ter pelo menos 18 anos para enviar o formulário");
+			}
+		}
+	</script>
+</body>
+</html>

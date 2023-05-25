@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+</body>
+</html>
+
+<html>
+  <head>
+    <script type="text/javascript">
+      function validarFormulario() {
+  var dia = document.getElementById("dia").value;
+  var mes = document.getElementById("mes").value;
+  var ano = document.getElementById("ano").value;
+  var mensagemErro = "";
+
+  if (dia == "" || mes == "" || ano == "") {
+    mensagemErro += "Por favor, preencha todas as informações de data.\n";
+  } else {
+    var data = new Date(ano, mes - 1, dia);
+    var hoje = new Date();
+    var idade = hoje.getFullYear() - data.getFullYear();
+    var mesAtual = hoje.getMonth() + 1;
+    if (mesAtual < mes || (mesAtual == mes && hoje.getDate() < dia)) {
+      idade--;
+    }
+    if (idade < 18) {
+      mensagemErro += "Você precisa ter pelo menos 18 anos para enviar o formulário.\n";
+    }
+  }
+
+  if (mensagemErro != "") {
+    alert(mensagemErro);
+    return false;
+  } else {
+    return true;
+  }
+}
+
+    </script>
+  </head>
+  <body>
+    <form id="formulario" action="SegundaPagina.php" method="POST" onsubmit="return validarFormulario()">
+      <h1> Sua Data De Nascimento</h1>
+      <input type="text" id="dia" placeholder="Dia"/>
+      <input type="text" id="mes" placeholder="Mes"/>
+      <input type="text" id="ano" placeholder="Ano"/>
+      <button>ENVIAR</button>
+    </form>
+  </body>
+</html>

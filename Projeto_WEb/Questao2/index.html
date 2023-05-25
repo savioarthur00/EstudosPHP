@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data nascimento</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+    
+   <script>
+       
+       var dia=  Number.parseInt(window.prompt("Digite o dia do seu nascimento:"))
+       var mes=  Number.parseInt(window.prompt("Digite o mês do seu nascimento:"))
+       var ano= Number.parseInt(window.prompt("Digite o ano do seu nascimento: "))
+       var ano_atual = 2023
+       var idade = ano_atual - ano ; 
+
+       
+       
+       if( ano>2023 || mes >12 || dia>31 || dia<=0 || mes<=0 || ano<=0){
+        window.alert("Data inválida");
+        
+        
+        }else
+
+            if(idade <18){
+            window.alert("Você é menor de idade!, formulário não enviado!")}
+            else{
+            window.alert("Formulário enviado!");
+
+        }
+       
+        
+    
+
+
+    </script>
+    
+
+    
+</body>
+</html>
+

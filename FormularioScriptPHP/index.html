@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Formulário</title>
+	<meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<form id="formulario" action="add_bd.php" method="post">
+		<label for="dia">Dia:</label>
+		<input type="number" id="dia" name="dia" required>
+		<br>
+		<label for="mes">Mês:</label>
+		<input type="number" id="mes" name="mes" required>
+		<br>
+		<label for="ano">Ano:</label>
+		<input type="number" id="ano" name="ano" required>
+		<br>
+		<button type="submit">Enviar</button>
+	</form>
+
+	<script>
+		document.getElementById("formulario").addEventListener("submit", function(event){
+			var dia = document.getElementById("dia").value;
+			var mes = document.getElementById("mes").value;
+			var ano = document.getElementById("ano").value;
+			var dataNascimento = new Date(ano, mes-1, dia);
+			var idade = Math.floor((new Date() - dataNascimento) / 31557600000);
+
+			if (idade < 18) {
+				alert("Você deve ter pelo menos 18 anos para enviar o formulário");
+				event.preventDefault();
+			}
+		});
+	</script>
+</body>
+</html>
